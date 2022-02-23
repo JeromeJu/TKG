@@ -170,8 +170,9 @@ public class JavaInfo {
         String releaseInfo = System.getProperty("java.home") + "release";
         Path releasePath = Paths.get(releaseInfo);
         if (Files.exists(releasePath)) {
-            rt = ce.execute(new String[] {"cat", releaseInfo});
+            rt = ce.execute(new String[] {"cat", "release"});
         }
+        rt = ce.execute(new String[] {"cat", "release"});
         return rt;
     }
 

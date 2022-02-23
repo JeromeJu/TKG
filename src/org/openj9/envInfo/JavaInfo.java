@@ -164,6 +164,7 @@ public class JavaInfo {
         }
     }
 
+    // TODO: print java_home, release
     public String getReleaseInfo() {
         String rt = "";
         CmdExecutor ce = CmdExecutor.getInstance();
@@ -172,7 +173,7 @@ public class JavaInfo {
         if (Files.exists(releasePath)) {
             rt = ce.execute(new String[] {"cat", "release"});
         }
-        rt = ce.execute(new String[] {"cat", "release"});
+        rt = ce.execute(new String[] {"cat release"});
         return rt;
     }
 
@@ -182,6 +183,7 @@ public class JavaInfo {
         CmdExecutor ce = CmdExecutor.getInstance();
         String javaHome = System.getProperty("java.home");
         rt = ce.execute(new String[] {"ls", javaHome});
+        rt = rt + javaHome;
         return rt;
     }
 

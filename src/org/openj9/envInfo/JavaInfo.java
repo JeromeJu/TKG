@@ -168,12 +168,14 @@ public class JavaInfo {
     public String getReleaseInfo() {
         String rt = "";
         CmdExecutor ce = CmdExecutor.getInstance();
-        String releaseInfo = System.getProperty("java.home") + "release";
+        String releaseInfo = System.getProperty("java.home") + "/release";
         Path releasePath = Paths.get(releaseInfo);
         if (Files.exists(releasePath)) {
-            rt = ce.execute(new String[] {"cat", "release"});
+            rt = ce.execute(new String[] {"cat", releaseInfo});
         }
-        rt = ce.execute(new String[] {"cat release"});
+        rt = ce.execute(new String[] {"cat", releaseInfo});
+        String javaHome = System.getProperty("java.home");
+        rt = rt + ce.execute(new String[] {"cat", javaHome.substring(java_home.length - 4)});
         return rt;
     }
 

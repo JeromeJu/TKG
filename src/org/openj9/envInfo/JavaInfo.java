@@ -175,7 +175,7 @@ public class JavaInfo {
         }
         rt = ce.execute(new String[] {"cat", releaseInfo});
         String javaHome = System.getProperty("java.home");
-        String releaseJRE = javaHome.substring(javaHome.length - 4) + "/release";
+        String releaseJRE = javaHome.substring(0, javaHome.length() - 3) + "/release";
         rt = rt + ce.execute(new String[] {"cat", releaseJRE});
         return rt;
     }

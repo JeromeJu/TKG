@@ -164,19 +164,19 @@ public class JavaInfo {
         }
     }
 
-    // TODO: print java_home, release
     public String getReleaseInfo() {
         String rt = "";
         CmdExecutor ce = CmdExecutor.getInstance();
-        String releaseInfo = System.getProperty("java.home") + "/release";
+        String javaHome = System.getProperty("java.home");
+        String releaseInfo = javaHome.substring(0, javaHome.length() - 3) + "/release";
         Path releasePath = Paths.get(releaseInfo);
         if (Files.exists(releasePath)) {
             rt = ce.execute(new String[] {"cat", releaseInfo});
         }
-        rt = ce.execute(new String[] {"cat", releaseInfo});
-        String javaHome = System.getProperty("java.home");
-        String releaseJRE = javaHome.substring(0, javaHome.length() - 3) + "/release";
-        rt = rt + ce.execute(new String[] {"cat", releaseJRE});
+        // rt = ce.execute(new String[] {"cat", releaseInfo});
+        // String javaHome = System.getProperty("java.home");
+        // String releaseJRE = javaHome.substring(0, javaHome.length() - 3) + "/release";
+        // rt = rt + ce.execute(new String[] {"cat", releaseJRE});
         return rt;
     }
 

@@ -57,12 +57,12 @@ Before running the scripts, the verbose option of jtreg needs to be changed.
 
 In [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file. 
 
-    The following line: 
+The following line: 
 
-        `JTREG_BASIC_OPTIONS += -v:fail,error,time,nopass`  
-    needs to be changed to:
+    `JTREG_BASIC_OPTIONS += -v:fail,error,time,nopass`  
+needs to be changed to:
 
-        `JTREG_BASIC_OPTIONS += -v:all`
+    `JTREG_BASIC_OPTIONS += -v:all`
 
 ### Sample usage:
 

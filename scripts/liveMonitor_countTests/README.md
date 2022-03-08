@@ -9,6 +9,7 @@ The liveMonitor scripts report on the number of openjdk tests or the live status
 
 [Related Issue](https://github.com/adoptium/TKG/issues/176)
 
+
 ## LiveMonitor Prerequisites
 
 - Python3 Installed
@@ -21,16 +22,17 @@ The liveMonitor scripts report on the number of openjdk tests or the live status
 
 
 
+
 ## count-java-tests
 
 The count-java-tests script counts how many test exists in a specified folder.It simply checks for the java files contains "@test" annotation. This script currently works on just openjdk tests.
 
 
-### Sample usage:
+#### Sample usage:
 
 `aqa-tests/TKG# python3 -u scripts/liveMonitor_countTests/count-java-tests.py ../openjdk/openjdk-jdk/test/langtools/tools/javac/warnings/`
 
-### Sample output:
+#### Sample output:
 
     Counting tests in 'aqa-tests/openjdk/openjdk-jdk/test/langtools/tools/javac/warnings/' ...
 

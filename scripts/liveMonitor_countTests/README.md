@@ -1,10 +1,15 @@
 [Related Issue](https://github.com/adoptium/TKG/issues/176)
 
-The liveMonitor scripts reports on the number of openjdk tests in a particular directory and addresses the user story of a developer that is running tests locally and wishes to see current/live status.
+The liveMonitor scripts report on the number of openjdk tests in a particular directory, addressing the user story of a developer that is running tests locally and wishes to see current/live status.
+
+TKG has a script that counts how many test exists in a specified folder. This script currently works on just openjdk tests. It simply checks for the java files contains "@test" annotation. Here is an example of how you can use this script :
+
+
 
 User story includes:
-Developer wishes to know how many tests in total there are in a particular directory (more granular than test targets defined in playlists)
-Developer wishes to have current test status during a live run of tests on their laptop (more granular that TAP results)
+-Developer wishes to know how many tests in total there are in a particular directory (more granular than test targets defined in playlists)
+
+-Developer wishes to have current test status during a live run of tests on their laptop (more granular that TAP results)
 
 ### LiveMonitor Usage
 
@@ -13,6 +18,7 @@ Prerequisite:
 - Python3 Installed
 
 - openjdk tests only
+
 `export BUILD_LIST=openjdk`
 
 `openjdk tests` are required to piped before compiling the script

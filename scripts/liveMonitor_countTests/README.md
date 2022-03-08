@@ -1,19 +1,15 @@
-[Related Issue](https://github.com/adoptium/TKG/issues/176)
+# LiveMonitor Scripts
 
-The liveMonitor scripts report on the number of openjdk tests in a particular directory, addressing the user story of a developer that is running tests locally and wishes to see current/live status.
+The liveMonitor scripts report on the number of openjdk tests or the live status in a particular directory, addressing the user story of a developer that is running tests locally and wishes to see the live status.
 
-TKG has a script that counts how many test exists in a specified folder. This script currently works on just openjdk tests. It simply checks for the java files contains "@test" annotation. Here is an example of how you can use this script :
-
-
-
-User story includes:
+User stories:
 -Developer wishes to know how many tests in total there are in a particular directory (more granular than test targets defined in playlists)
 
 -Developer wishes to have current test status during a live run of tests on their laptop (more granular that TAP results)
 
-### LiveMonitor Usage
+[Related Issue](https://github.com/adoptium/TKG/issues/176)
 
-Prerequisite: 
+## LiveMonitor Prerequisites
 
 - Python3 Installed
 
@@ -26,7 +22,10 @@ Prerequisite:
 
 
 ### count-java-tests
-TKG has a script that counts how many test exists in a specified folder. This script currently works on just openjdk tests. It simply checks for the java files contains "@test" annotation. Here is an example of how you can use this script :
+The count-java-tests script counts how many test exists in a specified folder.It simply checks for the java files contains "@test" annotation. This script currently works on just openjdk tests.  
+
+
+Sample usage:
 
 `aqa-tests/TKG# python3 -u scripts/liveMonitor_countTests/count-java-tests.py ../openjdk/openjdk-jdk/test/langtools/tools/javac/warnings/`
 
@@ -50,7 +49,7 @@ Sample output:
 
     Found 30 java files containing @test
 
-# jtreg-monitor
+### jtreg-monitor
 1. You need to change the verbose option of jtreg. In order to do that, you need to change 1 line of code in [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file. 
 
     You need to change 
@@ -63,6 +62,7 @@ Sample output:
 2. After that, you are ready to run the scripts. Here is the example of how you can do it : 
 
 	`make _sanity.openjdk | python3 -u scripts/liveMonitor_countTests/jtreg-monitor.py`
+
 
 Sample output:
 

@@ -2,10 +2,10 @@
 
 The liveMonitor scripts report on the number of openjdk tests or the live status in a particular directory, addressing the user story of a developer that is running tests locally and wishes to see the live status.
 
-User stories:
--Developer wishes to know how many tests in total there are in a particular directory (more granular than test targets defined in playlists)
+## User stories:
+- Developer wishes to know how many tests in total there are in a particular directory (more granular than test targets defined in playlists)
 
--Developer wishes to have current test status during a live run of tests on their laptop (more granular that TAP results)
+- Developer wishes to have current test status during a live run of tests on their laptop (more granular that TAP results)
 
 [Related Issue](https://github.com/adoptium/TKG/issues/176)
 
@@ -24,6 +24,7 @@ User stories:
 ## count-java-tests
 
 The count-java-tests script counts how many test exists in a specified folder.It simply checks for the java files contains "@test" annotation. This script currently works on just openjdk tests.
+
 
 ### Sample usage:
 
@@ -53,11 +54,11 @@ The count-java-tests script counts how many test exists in a specified folder.It
 
 The jtreg-monitor provides the live status of the TAP results that have been running.
 
+
 Before running the scripts, the verbose option of jtreg needs to be changed. 
 
-In [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file. 
 
-The following line: 
+In [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file:
 
     `JTREG_BASIC_OPTIONS += -v:fail,error,time,nopass`  
 needs to be changed to:

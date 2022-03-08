@@ -14,11 +14,10 @@ The liveMonitor scripts report on the number of openjdk tests or the live status
 
 - Python3 Installed
 
-- openjdk tests only
+- openjdk tests only, these tests are required to be piped before compiling the script
 
 `export BUILD_LIST=openjdk`
 
-`openjdk tests` are required to piped before compiling the script
 
 
 
@@ -67,12 +66,12 @@ needs to be changed to:
 
     `JTREG_BASIC_OPTIONS += -v:all`
 
-### Sample usage:
+#### Sample usage:
 
 	`make _sanity.openjdk | python3 -u scripts/liveMonitor_countTests/jtreg-monitor.py`
 
 
-### Sample output:
+#### Sample output:
 
     /<localAddress>/TKG# % make _sanity.openjdk | python3 -u scripts/liveMonitor_countTests/jtreg-monitor.py
 

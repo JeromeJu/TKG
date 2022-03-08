@@ -21,15 +21,15 @@ User stories:
 
 
 
-### count-java-tests
-The count-java-tests script counts how many test exists in a specified folder.It simply checks for the java files contains "@test" annotation. This script currently works on just openjdk tests.  
+## count-java-tests
 
+The count-java-tests script counts how many test exists in a specified folder.It simply checks for the java files contains "@test" annotation. This script currently works on just openjdk tests.
 
-Sample usage:
+### Sample usage:
 
 `aqa-tests/TKG# python3 -u scripts/liveMonitor_countTests/count-java-tests.py ../openjdk/openjdk-jdk/test/langtools/tools/javac/warnings/`
 
-Sample output:
+### Sample output:
 
     Counting tests in 'aqa-tests/openjdk/openjdk-jdk/test/langtools/tools/javac/warnings/' ...
 
@@ -49,22 +49,27 @@ Sample output:
 
     Found 30 java files containing @test
 
-### jtreg-monitor
-1. You need to change the verbose option of jtreg. In order to do that, you need to change 1 line of code in [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file. 
+## jtreg-monitor
 
-    You need to change 
+The jtreg-monitor provides the live status of the TAP results that have been running.
+
+Before running the scripts, the verbose option of jtreg needs to be changed. 
+
+In [/openjdk/openjdk.mk](https://github.com/adoptium/aqa-tests/blob/master/openjdk/openjdk.mk) file. 
+
+    The following line: 
 
         `JTREG_BASIC_OPTIONS += -v:fail,error,time,nopass`  
-    line to
+    needs to be changed to:
 
         `JTREG_BASIC_OPTIONS += -v:all`
 
-2. After that, you are ready to run the scripts. Here is the example of how you can do it : 
+### Sample usage:
 
 	`make _sanity.openjdk | python3 -u scripts/liveMonitor_countTests/jtreg-monitor.py`
 
 
-Sample output:
+### Sample output:
 
     /<localAddress>/TKG# % make _sanity.openjdk | python3 -u scripts/liveMonitor_countTests/jtreg-monitor.py
 

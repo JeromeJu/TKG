@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'JeromeJu/TKG.git'
-        ref: 'test_run_aqa'
+        ref: 'JeromeJu:295_argname'
         path: 'TKG'
     - name: Parse parameters
       env:
